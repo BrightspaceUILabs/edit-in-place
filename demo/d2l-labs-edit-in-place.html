@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<title>d2l-labs-edit-in-place demo</title>
+		<script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+		<script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+        <script type="module" src="../../../@brightspace-ui/core/components/typography/typography.js"></script>
+        <script type="module" src="../src/d2l-labs-edit-in-place.js"></script>
+
+        <script type="module">
+            const $_documentContainer = document.createElement('template');
+            document.body.appendChild($_documentContainer.content);
+        </script>
+    </head>
+
+    <body class="d2l-typography">
+		<script type="module">
+            const $_documentContainer = document.createElement('template');
+
+            $_documentContainer.innerHTML = `<div class="vertical-section-container">
+                <h3>Edit-In-Place</h3>
+                <demo-snippet>
+                    <template>
+                        <d2l-labs-edit-in-place></d2l-labs-edit-in-place>
+                    </template>
+                </demo-snippet>
+		    </div>`;
+
+        document.body.appendChild($_documentContainer.content);
+        </script>
+        <script type="module">
+            document.body.addEventListener('change', function(e) {
+	            // eslint-disable-next-line no-console
+	            console.log('input change:', e.target.value, e.target);
+            });
+        </script>
+    </body>
+</html>

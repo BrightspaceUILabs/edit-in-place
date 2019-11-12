@@ -1,0 +1,30 @@
+Essential components - 
+
+depend on https://github.com/BrightspaceUI/core for buttons, labels, styles, input
+
+
+
+properties - default text - display this italically when no text has populated the component. This should also be the default empty text.
+text - display this if it exists.
+state - Whether it is open for edit or not
+language - for Save and Cancel
+
+create a textchanged event to send up when Save is pressed and the new text and old text are different.
+
+
+Plan: 
+Follow the pattern we've already worked on for the Course link, but make it dynamic.
+
+Display the template that correctly displays what's necessary.
+
+ - No elements should move as a result of the switch between input and label. therefore the element should margin out the necessary 
+	length for the ENTIRE content to fit.
+	How do we achieve this requirement?
+
+Design questions for others:	
+ - Define the size immediately on load?
+ - If the content is hidden will it definitely fit correctly?
+ - Do we allow for infinite text or truncate as necessary?
+ 
+	
+

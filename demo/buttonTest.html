@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <script type="module" src="@brightspace-ui/core/components/inputs/input-text.js"></script>
+        <script type="module" src="@brightspace-ui/core/components/button/button.js"></script>
+		<title>d2l button short why help</title>
+        <script type="module" src="../src/import.js"></script>
+
+        <style>
+            .container{
+                display:flex;
+                background-color:coral;
+                font-size: 10px;
+            }
+            .test1{
+                height: 200px;
+                font-size: 30px
+            }
+            .test2{
+                height: 500px;
+                width: 200px;
+                font-size: 0px
+            }
+            .test3{
+                height:34px;
+                background-color:rgb(221, 190, 250);
+                padding:0;
+                margin:0;
+            }
+        </style>
+    </head>
+
+    <body class="d2l-typography">
+		<script type="module">
+            const $_documentContainer = document.createElement('template');
+
+            $_documentContainer.innerHTML = `
+            <div class="container">
+                <button class="test1">basic button</button>
+                <d2l-button class="test2">d2l button</d2l-button>
+                <h1 class="test3"> 34px h1 for height comparison</h1>
+            </div>
+		   `;
+
+        document.body.appendChild($_documentContainer.content);
+        </script>
+    </body>
+</html>
