@@ -18,7 +18,7 @@
 > - [ ] Demo page
 > - [ ] README documentation
 
-Lit-based web component for displaying text and editing it directly.
+[LitElement](https://lit-element.polymer-project.org/) web component for displaying text and editing it in-place.
 
 ## Installation
 
@@ -34,8 +34,36 @@ npm install @brightspace-ui-labs/edit-in-place
 <script type="module">
     import '@brightspace-ui-labs/edit-in-place/edit-in-place.js';
 </script>
-<d2l-labs-edit-in-place>My element</d2l-labs-edit-in-place>
+<d2l-labs-edit-in-place placeholder="Edit Me"></d2l-labs-edit-in-place>
 ```
+
+**Properties:**
+- `value` (String): value of the input
+- `placeholder`String, default: `'Enter a value'`): placeholder text of the input. If value is blank, this appears in italics as the label. Must not be blank.
+- `size`(Number): length of the input
+- `maxlength`(Number): imposes an upper character limit
+
+**Events:**
+
+The `d2l-labs-edit-in-place` dispatches the `change` event when text is saved via pressing the Enter key while focusing the input, or by pressing the save button:
+
+```javascript
+editInPlace.addEventListener('change', (e) => {
+  console.log(editInPlace.value);
+});
+```
+
+### Headers
+`d2l-labs-edit-in-place` can be used in headers and other section-related elements by wrapping it within the desired element:
+```html
+<script type="module">
+    import '@brightspace-ui-labs/edit-in-place/edit-in-place.js';
+</script>
+<h2>
+    <d2l-labs-edit-in-place placeholder="Edit Me"></d2l-labs-edit-in-place>
+</h2>
+```
+
 
 ## Developing, Testing and Contributing
 
@@ -78,35 +106,6 @@ npm test
 [ci-url]: https://travis-ci.org/BrightspaceUILabs/edit-in-place
 [ci-image]: https://travis-ci.org/BrightspaceUILabs/edit-in-place.svg?branch=master
 
-### Running the demos
-
-To start a [local web server](https://www.polymer-project.org/3.0/docs/tools/polymer-cli-commands#serve) that hosts the demo page and tests:
-
-```shell
-polymer serve
-```
-
-### Testing
-
-To lint:
-
-```shell
-npm run lint
-```
-
-To run local unit tests:
-
-```shell
-npm run test:local
-```
-
-To run a subset of local unit tests, modify your local [index.html](https://github.com/BrightspaceUILabs/edit-in-place/blob/master/test/index.html), or start the dev server and navigate to the desired test page.
-
-To run linting and unit tests:
-
-```shell
-npm test
-```
 
 ## Versioning, Releasing & Deploying
 

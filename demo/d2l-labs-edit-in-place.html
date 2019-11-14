@@ -3,39 +3,60 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-		<title>d2l-labs-edit-in-place demo</title>
+
+        <link rel="stylesheet" href="styles.css" type="text/css">
 		<script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 		<script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
 		<script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
         <script type="module" src="../../../@brightspace-ui/core/components/typography/typography.js"></script>
-        <script type="module" src="../src/d2l-labs-edit-in-place.js"></script>
+
+        <script type="module">
+                import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+                import '../src/d2l-labs-edit-in-place.js';
+            </script>
 
         <script type="module">
             const $_documentContainer = document.createElement('template');
             document.body.appendChild($_documentContainer.content);
         </script>
+
+        <title>d2l-labs-edit-in-place demo</title>
     </head>
 
     <body class="d2l-typography">
-		<script type="module">
-            const $_documentContainer = document.createElement('template');
+        <d2l-demo-page>
+                <h1>Edit-In-Place</h1>
+                <d2l-demo-snippet>
+                    <d2l-labs-edit-in-place></d2l-labs-edit-in-place>
+                </d2l-demo-snippet>
 
-            $_documentContainer.innerHTML = `<div class="vertical-section-container">
-                <h3>Edit-In-Place</h3>
-                <demo-snippet>
-                    <template>
-                        <d2l-labs-edit-in-place></d2l-labs-edit-in-place>
-                    </template>
-                </demo-snippet>
-		    </div>`;
+                <d2l-demo-snippet>
+                    <d2l-labs-edit-in-place placeholder="Custom placeholder text"></d2l-labs-edit-in-place>
+                </d2l-demo-snippet>
 
-        document.body.appendChild($_documentContainer.content);
-        </script>
-        <script type="module">
-            document.body.addEventListener('change', function(e) {
-	            // eslint-disable-next-line no-console
-	            console.log('input change:', e.target.value, e.target);
-            });
-        </script>
+                <d2l-demo-snippet>
+                    <d2l-labs-edit-in-place size="80" placeholder="Enter a value - Longer"></d2l-labs-edit-in-place>
+                </d2l-demo-snippet>
+
+                <d2l-demo-snippet>
+                    <d2l-labs-edit-in-place value="Example of value supplied through property"></d2l-labs-edit-in-place>
+                </d2l-demo-snippet>
+
+                <d2l-demo-snippet>
+                    <h1>
+                        <d2l-labs-edit-in-place placeholder="Enter a value - Header"></d2l-labs-edit-in-place>
+                    </h1>
+                </d2l-demo-snippet>
+
+                <d2l-demo-snippet>
+                        <d2l-labs-edit-in-place maxlength="5" placeholder="Enter a value - maximum 5 characters"></d2l-labs-edit-in-place>
+                </d2l-demo-snippet>
+
+                <d2l-demo-snippet>
+                        <d2l-labs-edit-in-place id="listenToMe"></d2l-labs-edit-in-place>
+                </d2l-demo-snippet>
+		    </div>
+        </d2l-demo-page>
     </body>
+
 </html>
