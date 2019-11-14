@@ -39,7 +39,7 @@ npm install @brightspace-ui-labs/edit-in-place
 
 **Properties:**
 - `value` (String): value of the input
-- `placeholder`String, default: `'Enter a value'`): placeholder text of the input. If value is blank, this appears in italics as the label. Must not be blank.
+- `placeholder`String, default: `'Enter a value'`): placeholder text of the input. If `value` is blank, this appears in italics as the label. `placeholder` must not be blank.
 - `size`(Number): length of the input
 - `maxlength`(Number): imposes an upper character limit
 
@@ -82,6 +82,8 @@ To start a [local web server](https://www.polymer-project.org/3.0/docs/tools/pol
 ```shell
 polymer serve
 ```
+The demo page can be found at http://127.0.0.1:8081/components/@brightspace-ui-labs/edit-in-place/demo/d2l-labs-edit-in-place.html.
+Note the port number your shell outputs; If it differs from the above URL, change the URL accordingly.
 
 ### Testing
 
