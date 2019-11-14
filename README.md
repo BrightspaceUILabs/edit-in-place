@@ -15,10 +15,10 @@
 > - [ ] [Accessibility tests](https://github.com/BrightspaceUI/guide/wiki/Testing#automated-accessibility-testing-with-axe)
 > - [ ] [Visual diff tests](https://github.com/BrightspaceUI/visual-diff)
 > - [ ] [Localization](https://github.com/BrightspaceUI/guide/wiki/Localization) with Serge (if applicable)
-> - [ ] Demo page
-> - [ ] README documentation
+> - [x] Demo page
+> - [x] README documentation
 
-[LitElement](https://lit-element.polymer-project.org/) web component for displaying text and editing it in-place.
+A [LitElement](https://lit-element.polymer-project.org/) web component for displaying text and editing it in-place.
 
 ## Installation
 

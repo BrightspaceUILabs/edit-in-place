@@ -100,7 +100,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 			<div class="Edit-In-Place-Container">
 				<div class="Label-Container" ?hidden="${this.__inputMode}">
 					<div id="Edit-In-Place-Label" role="button" tabindex="0" class="Editable-Text-Label" @click="${this.enterInputMode}" @keydown="${this.enterInputMode_keydown}">
-						<span ?hidden="${this.canShowValueLabel()}" aria-label="${this.placeholder}: ${this.value}">${this.value}</span>
+						<span ?hidden="${this.canShowValueLabel()}" aria-label="Edit: ${this.value}">${this.value}</span>
 						<span class="Placeholder-Label-Text" ?hidden="${!this.canShowValueLabel()}">${this.placeholder}</span>
 					</div>
 				</div>
