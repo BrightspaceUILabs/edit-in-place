@@ -82,7 +82,7 @@ To start a [local web server](https://www.polymer-project.org/3.0/docs/tools/pol
 ```shell
 polymer serve
 ```
-The demo page can be found at http://127.0.0.1:8081/components/@brightspace-ui-labs/edit-in-place/demo/d2l-labs-edit-in-place.html
+The demo page can be found at http://127.0.0.1:8081/components/@brightspace-ui-labs/edit-in-place/demo/d2l-labs-edit-in-place.html.
 Note the port number your shell outputs; If it differs from the above URL, change the URL accordingly.
 
 ### Testing
