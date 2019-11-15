@@ -148,9 +148,9 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 	}
 
 	saveValueChange_Keydown(e) {
+		this.updateInputTextValue(e);
 		if (e.keyCode === 13)
 		{
-			this.updateInputTextValue(e);
 			this.saveValueChange();
 		}
 	}
