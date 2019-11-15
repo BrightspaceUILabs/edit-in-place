@@ -56,6 +56,12 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 				font-style: italic;
 			}
 
+			.Readonly-Text-Label {
+				display:flex;
+				justify-content: center;
+				align-items: center;
+			}
+
 			.Input-Container{
 				display:flex;
 				height:100%;
@@ -99,7 +105,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		return html`
 			<div class="Edit-In-Place-Container">
 				<div class="Label-Container" ?hidden="${this.__inputMode}">
-					<div id="Edit-In-Place-Label" role="button" tabindex="0" class="Editable-Text-Label" @click="${this.enterInputMode}" @keydown="${this.enterInputMode_keydown}">
+					<div id="Edit-In-Place-Label" role="${this.getLabelRole()}" tabindex="${this.getLabelTabindex()}" class="${this.getLabelClass()}" @click="${this.enterInputMode}" @keydown="${this.enterInputMode_keydown}">
 						<span ?hidden="${this.canShowValueLabel()}" aria-label="Edit: ${this.value}">${this.value}</span>
 						<span class="Placeholder-Label-Text" ?hidden="${!this.canShowValueLabel()}">${this.placeholder}</span>
 					</div>
@@ -113,7 +119,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 						maxlength="${ifDefined(this.maxlength)}"
 						placeholder="${this.placeholder}"
 						@keydown="${this.saveValueChange_Keydown}"
-						@change=${this.updateInputTextValue}>
+						@change="${this.updateInputTextValue}">
 					</d2l-input-text>
 					<d2l-button class="Input-Button" primary @click="${this.saveValueChange}">Save</d2l-button>
 					<d2l-button class="Input-Button" @click="${this.cancelValueChange}">Cancel</d2l-button>
@@ -177,6 +183,18 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 	async focusInput(element) {
 		await this.updateComplete; //Must wait for the property to unhide element before we can focus.
 		element.focus();
+	}
+
+	getLabelRole() {
+		return this.readonly ? '' : 'button';
+	}
+
+	getLabelTabindex() {
+		return this.readonly ? '' : '0';
+	}
+
+	getLabelClass() {
+		return this.readonly ? 'Readonly-Text-Label' :  'Editable-Text-Label';
 	}
 }
 customElements.define('d2l-labs-edit-in-place', EditInPlace);

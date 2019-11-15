@@ -42,6 +42,7 @@ npm install @brightspace-ui-labs/edit-in-place
 - `placeholder`String, default: `'Enter a value'`): placeholder text of the input. If `value` is blank, this appears in italics as the label. `placeholder` must not be blank.
 - `size`(Number): length of the input
 - `maxlength`(Number): imposes an upper character limit
+- `readonly`(Boolean): Prevents the control from entering edit mode if true.
 
 **Events:**
 
