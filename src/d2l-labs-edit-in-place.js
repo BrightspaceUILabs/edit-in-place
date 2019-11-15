@@ -163,7 +163,6 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 			'change',
 			{bubbles: true, composed: false}
 		));
-
 	}
 
 	cancelValueChange() {
