@@ -16,15 +16,19 @@ after_success:
 - frauci-update-version -d=skip && export TRAVIS_TAG=$(frauci-get-version)
 env:
   global:
-  - SAUCE_USERNAME: Desire2Learn
+  - SAUCE_USERNAME: Gaudi1
   - REPO_NAME=edit-in-place
   - OWNER_NAME=BrightspaceUILabs
+  # SAUCE_ACCESS_KEY
+  - secure: Efkb8PYies7sKDTcrkzigZeWejKeO9pC1/rmDrQ9BdIzgI365hAkfx14PEmEekKWd9KF8xR+DVIz45LgVeUn3DxsXhk7clBH324ng9gjs6bHNYRvU3wOzoIuBsEOmKp7MVVwxWS2AMAhINiIz4jEUa6RIZJQyVO0zyFW+Ly+emxzYmYuvgra+qYt50qvPcrwH6nm0kWecDhDmlr2zK0awqqlWz7EDxnxMOFnepeFaFPBHfm8WB1rZYQp+SCfUR04YmK3gY2pjGbU+1TnBDHT8AKBpDPzD2j4gmORiQvG5ztpk58qY+QBcZMgzq4W9TYjZlBBIUE+gP2fgXd9+TXbHcFlWI7klQOEq7ctw/BKfJvjAEiWUJ/eq+6NSBK2cSBDN7kzsn5w67P4W35mwQhSVY2mFCs1Xt3zEDaiu1XPK8KRThFOEWoaBTY3XPkXA9eLAvW99Sd1qhbwS42xWy/dIwG5ahpkHABX+OyR7GqyuoB5SS+RWlj/dvaZ1H0ilkwVW343Fm57KvHGU/0JOu5BSTRXB3a3qb+q4wvZOX6NUm0O6gerNPmH8vaI5BX+Q8OdkbHGnhOcTY4oY879rDYxesCDlIwdfYij4UFOpUPU1w3DHjyUz9P6FzHS9zQe6InNCu1f5RBpvHfbf31ICLsR4cJWwj9dy51tysquZkroKhk=
+  # GITHUB_RELEASE_TOKEN (8112......8fcc)
+  - secure: Qruz2GfYYQn99/gkyMVm8EqmNHcx7Ij8N7MLTyvmcuuhgM9oL2eEkjA+RkvDOUKluoH/4c7cGEll+HpP8gQvRuUSIvEweVaQnBqJ+EMqshGtqTHcZGjAB27fv8rxAbNmZpHnPJRqJtfjAopMEKewcacdRfjGN7kZokVG9TWJJVDIreFhurbhquQgEiL+IT1RLrFRr0EJqWgU82j1Rqcm2Tq7YVArgVCTHC82Hrmo4+MSblo3mAIU3VqS8iPC1kKeVm+zRXZBtJdsxO1c/SNWWHk2Zpp6oPjDgG7oZ1eQUFDi+1XaJ0JLTc9zbqvFIVozeMb1dhagX++KZVK0jVQngWZOo9FDq4vITwHN3du6REo4KjOOUFj0dUqsPBOWh+0gxUVFCtO1UKfzgQHjBJJl0G2rfleySGZ2Zaa5M4ui/+wGmoqsOGD8yyYLEDK0qN3066D7R5GAFIw9tXdle9+66eQDzZ7liiE8Oj9PRlEq8n0CaPjCtqoIsTBriYGHChR7O5TCk+jadBe6RRDY5CcdJFQ6JLz+ri0m0CoUjipt1V2lgvDrqUu1B1p2HLzIcIa7nixnxvgq9wZF8o4mqYpohm5Is20zbNWABYEkAtowarN+7OLOPz+XT5QwhSeSyXNlFGdqhAsyl7OGFEseao1roWCWY/cf00A1IAH2RJntCCI=
 deploy:
-  - provider: npm
-    email: d2ltravisdeploy@d2l.com
-    skip_cleanup: true
-    api_key:
-      # d2l-travis-deploy: ...
-    on:
-      tags: true
-      repo: BrightspaceUILabs/edit-in-place
+  provider: npm
+  email: d2ltravisdeploy@d2l.com
+  api_key:
+    # 033e......63e7
+    secure: NfgBt1viH5EQ2fb1rwe2wznhURS3wF/EcxplwaImn81jUpkvsQG4RggfYExdEi87j5D4AdtnfFeVc1jMCWmXEXUn0p3ZH/W0nPMR1uBem1DFSkxJOoXKE3mT+vNoo4fkPyqD88cou80f4JySYDnr7MsYH5sicQFJT0bBKqcqbqAPY9o7mVBFubj8wNMmUqqY7xOkQG9/HK16NEp92bdSapdhXkw/KJ7Xr1hpHFRy4s7PkdIMZSiPWAiO2M9tky6v1AObTDZCCyoCBYxtZb2bv+UIYqewx7x3wgyg0Lb7FAgi+OQ2O+YXus5dKymXhvm5mBmnHmr9SDXCz4KewLhBwODBea+EZ6IVu79hdRCGyReG1M1Aa9EgHc6jl94tHR4NuHMXWviObcggoSRm7hejoT2TZqbAN5ZhMBKX22sY1x5mgRjzYZKgGB5x6E7IY16QWGt+YyhQDi++s/+NQ4DAl4+qwzfPr1pRffLlKacFPjsQMlVBq5PJ3zRyLnJOTrtwiPQP9uqYx2BxKyocwMydgRtmwaZegVfUx6FwAyZby+fqf+MsaYXp+/00Oobv/L58Mhn46lSYXfLWyoy9y9aSyFxAmZW/tx/NJIBN4nO3tPatns74kNbYgfupqyMCFBsoRz1/fawTPJxIuJbmHqW8pP8ItLhWcvDf/Nut4JPtL7A=
+  on:
+    tags: true
+    repo: BrightspaceUILabs/edit-in-place
