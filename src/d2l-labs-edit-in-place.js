@@ -148,9 +148,9 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 	}
 
 	saveValueChange_Keydown(e) {
+		this.updateInputTextValue(e);
 		if (e.keyCode === 13)
 		{
-			this.updateInputTextValue(e);
 			this.saveValueChange();
 		}
 	}
@@ -163,7 +163,6 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 			'change',
 			{bubbles: true, composed: false}
 		));
-
 	}
 
 	cancelValueChange() {
