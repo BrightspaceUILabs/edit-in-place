@@ -1,5 +1,6 @@
 {
   "name": "@brightspace-ui-labs/edit-in-place",
+  "version": "1.0.0",
   "description": "Lit-based web component for displaying text and editing it directly.",
   "repository": {
     "type": "git",
@@ -42,11 +43,7 @@
     "@webcomponents/webcomponentsjs": "^2",
     "lit-element": "^2.2.1"
   },
-  "bugs": {
-    "url": "https://github.com/BrightspaceUILabs/edit-in-place/issues"
-  },
   "homepage": "https://github.com/BrightspaceUILabs/edit-in-place#readme",
-  "version": "1.0.0",
   "main": "index.js",
   "directories": {
     "test": "test"
