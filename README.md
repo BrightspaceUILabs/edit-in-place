@@ -32,7 +32,7 @@ npm install @brightspace-ui-labs/edit-in-place
 
 ```html
 <script type="module">
-    import '@brightspace-ui-labs/edit-in-place/edit-in-place.js';
+    import '@brightspace-ui-labs/d2l-labs-edit-in-place.js';
 </script>
 <d2l-labs-edit-in-place placeholder="Edit Me"></d2l-labs-edit-in-place>
 ```
