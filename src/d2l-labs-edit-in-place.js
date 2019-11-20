@@ -105,9 +105,9 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		return html`
 			<div class="Edit-In-Place-Container">
 				<div class="Label-Container" ?hidden="${this.__inputMode}">
-					<div id="Edit-In-Place-Label" role="${this.getLabelRole()}" tabindex="${this.getLabelTabindex()}" class="${this.getLabelClass()}" @click="${this.enterInputMode}" @keydown="${this.enterInputMode_keydown}">
-						<span ?hidden="${this.canShowValueLabel()}" aria-label="Edit: ${this.value}">${this.value}</span>
-						<span class="Placeholder-Label-Text" ?hidden="${!this.canShowValueLabel()}">${this.placeholder}</span>
+					<div id="Edit-In-Place-Label" role="${this._determineLabelRole()}" tabindex="${this._determineLabelTabindex()}" class="${this._determineLabelClass()}" @click="${this.enterInputMode}" @keydown="${this.enterInputMode_keydown}">
+						<span ?hidden="${this._canShowValueLabel()}" aria-label="Edit: ${this.value}">${this.value}</span>
+						<span class="Placeholder-Label-Text" ?hidden="${!this._canShowValueLabel()}">${this.placeholder}</span>
 					</div>
 				</div>
 
@@ -128,36 +128,36 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		`;
 	}
 
-	enterInputMode_keydown(e) {
+	_enterInputMode_keydown(e) {
 		if (e.keyCode === 13)
 		{
-			this.enterInputMode();
+			this._enterInputMode();
 		}
 	}
 
-	enterInputMode() {
+	_enterInputMode() {
 		if (this.readonly) {return;}
 
 		this.__inputMode = true;
-		this.focusInput(this.shadowRoot.getElementById('Input-Box'));
+		this._focusInput(this.shadowRoot.getElementById('Input-Box'));
 	}
 
-	enterLabelMode() {
+	_enterLabelMode() {
 		this.__inputMode = false;
-		this.focusInput(this.shadowRoot.getElementById('Edit-In-Place-Label'));
+		this._focusInput(this.shadowRoot.getElementById('Edit-In-Place-Label'));
 	}
 
-	saveValueChange_Keydown(e) {
-		this.updateInputTextValue(e);
+	_saveValueChange_Keydown(e) {
+		this._updateInputTextValue(e);
 		if (e.keyCode === 13)
 		{
-			this.saveValueChange();
+			this._saveValueChange();
 		}
 	}
 
-	saveValueChange() {
+	_saveValueChange() {
 		this.value = this.__inputTextValue;
-		this.enterLabelMode();
+		this._enterLabelMode();
 
 		this.dispatchEvent(new CustomEvent(
 			'change',
@@ -165,34 +165,34 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		));
 	}
 
-	cancelValueChange() {
+	_cancelValueChange() {
 		this.__inputTextValue = this.value;
 		this.shadowRoot.getElementById('Input-Box').value = this.value;
-		this.enterLabelMode();
+		this._enterLabelMode();
 	}
 
-	updateInputTextValue(e) {
+	_updateInputTextValue(e) {
 		this.__inputTextValue = e.target.value;
 	}
 
-	canShowValueLabel() {
+	_canShowValueLabel() {
 		return !this.value.length > 0;
 	}
 
-	async focusInput(element) {
+	async _focusInput(element) {
 		await this.updateComplete; //Must wait for the property to unhide element before we can focus.
 		element.focus();
 	}
 
-	getLabelRole() {
+	_determineLabelRole() {
 		return this.readonly ? '' : 'button';
 	}
 
-	getLabelTabindex() {
+	_determineLabelTabindex() {
 		return this.readonly ? '' : '0';
 	}
 
-	getLabelClass() {
+	_determineLabelClass() {
 		return this.readonly ? 'Readonly-Text-Label' :  'Editable-Text-Label';
 	}
 }
