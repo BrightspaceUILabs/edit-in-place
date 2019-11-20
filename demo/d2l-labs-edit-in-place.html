@@ -1,31 +1,19 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-
-        <link rel="stylesheet" href="styles.css" type="text/css">
-		<script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-		<script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-        <script type="module" src="../../../@brightspace-ui/core/components/typography/typography.js"></script>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="styles.css" type="text/css">
+		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
         <script type="module">
-            import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+            import '../../../@brightspace-ui/core/components/demo/demo-page.js';
             import '../src/d2l-labs-edit-in-place.js';
         </script>
-
-        <script type="module">
-            const $_documentContainer = document.createElement('template');
-            document.body.appendChild($_documentContainer.content);
-        </script>
-
-        <title>d2l-labs-edit-in-place demo</title>
     </head>
 
-    <body class="d2l-typography">
-        <d2l-demo-page>
-                <h1>Edit-In-Place</h1>
+    <body unresolved>
+        <d2l-demo-page page-title="d2l-labs-edit-in-place">
                 <d2l-demo-snippet>
                     <d2l-labs-edit-in-place></d2l-labs-edit-in-place>
                 </d2l-demo-snippet>
