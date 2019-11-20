@@ -105,7 +105,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		return html`
 			<div class="Edit-In-Place-Container">
 				<div class="Label-Container" ?hidden="${this.__inputMode}">
-					<div id="Edit-In-Place-Label" role="${this._determineLabelRole()}" tabindex="${this._determineLabelTabindex()}" class="${this._determineLabelClass()}" @click="${this.enterInputMode}" @keydown="${this.enterInputMode_keydown}">
+					<div id="Edit-In-Place-Label" role="${this._determineLabelRole()}" tabindex="${this._determineLabelTabindex()}" class="${this._determineLabelClass()}" @click="${this._enterInputMode}" @keydown="${this._enterInputMode_keydown}">
 						<span ?hidden="${this._canShowValueLabel()}" aria-label="Edit: ${this.value}">${this.value}</span>
 						<span class="Placeholder-Label-Text" ?hidden="${!this._canShowValueLabel()}">${this.placeholder}</span>
 					</div>
@@ -118,11 +118,11 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 						size="${ifDefined(this.size)}"
 						maxlength="${ifDefined(this.maxlength)}"
 						placeholder="${this.placeholder}"
-						@keydown="${this.saveValueChange_Keydown}"
-						@change="${this.updateInputTextValue}">
+						@keydown="${this._saveValueChange_Keydown}"
+						@change="${this._updateInputTextValue}">
 					</d2l-input-text>
-					<d2l-button class="Input-Button" primary @click="${this.saveValueChange}">Save</d2l-button>
-					<d2l-button class="Input-Button" @click="${this.cancelValueChange}">Cancel</d2l-button>
+					<d2l-button class="Input-Button" primary @click="${this._saveValueChange}">Save</d2l-button>
+					<d2l-button class="Input-Button" @click="${this._cancelValueChange}">Cancel</d2l-button>
 				</div>
 			</div>
 		`;
