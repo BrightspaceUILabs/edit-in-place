@@ -137,7 +137,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 
 	_enterInputMode() {
 		if (this.readonly) {return;}
-
+		this.shadowRoot.getElementById('Input-Box').value = this.value;
 		this.__inputMode = true;
 		this._focusInput(this.shadowRoot.getElementById('Input-Box'));
 	}
