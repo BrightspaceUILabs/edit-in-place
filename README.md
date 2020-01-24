@@ -43,6 +43,7 @@ npm install @brightspace-ui-labs/edit-in-place
 - `size`(Number): length of the input
 - `maxlength`(Number): imposes an upper character limit
 - `readonly`(Boolean): The label will behave like a simple text element if true.
+- `allowEmpty` (Boolean): Allows for empty string to be saved. Otherwise, component will disable save functionality until there is text.
 
 **Events:**
 

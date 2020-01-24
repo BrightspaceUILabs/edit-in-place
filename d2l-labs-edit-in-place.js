@@ -19,8 +19,9 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 			size: { type: Number },
 			readonly: {type: Boolean},
 			maxlength: { type: String },
+			allowEmpty: { type: Boolean },
 
-			__inputText: {type:String},
+			__inputTextValue: {type:String},
 			__inputMode: { type: Boolean },
 		};
 	}
@@ -118,14 +119,19 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 						size="${ifDefined(this.size)}"
 						maxlength="${ifDefined(this.maxlength)}"
 						placeholder="${this.placeholder}"
-						@keydown="${this._saveValueChange_Keydown}"
+						@keyup="${this._saveValueChange_Keyup}"
 						@change="${this._updateInputTextValue}">
 					</d2l-input-text>
-					<d2l-button class="Input-Button" primary @click="${this._saveValueChange}">Save</d2l-button>
+					<d2l-button id="Save-Button" class="Input-Button" ?disabled=${this._disableSave()} ?primary=${!this._disableSave()} @click="${this._saveValueChange}">Save</d2l-button>
 					<d2l-button class="Input-Button" @click="${this._cancelValueChange}">Cancel</d2l-button>
 				</div>
 			</div>
 		`;
+	}
+
+	_disableSave() {
+		const inputBox = this.shadowRoot.getElementById('Input-Box');
+		return !this.allowEmpty && inputBox && inputBox.value === '';
 	}
 
 	_enterInputMode_keydown(e) {
@@ -147,9 +153,9 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		this._focusInput(this.shadowRoot.getElementById('Edit-In-Place-Label'));
 	}
 
-	_saveValueChange_Keydown(e) {
+	_saveValueChange_Keyup(e) {
 		this._updateInputTextValue(e);
-		if (e.keyCode === 13)
+		if (e.keyCode === 13 && !this._disableSave())
 		{
 			this._saveValueChange();
 		}
