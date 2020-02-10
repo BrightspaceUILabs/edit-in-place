@@ -7,8 +7,11 @@
 import 'd2l-inputs/d2l-input-text';
 import '@brightspace-ui/core/components/button/button.js';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
+import { getLocalizeResources } from './localization.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { LocalizeMixin } from '@brightspace-ui/core/mixins/localize-mixin.js';
+
+const baseUrl = import.meta.url;
 
 class EditInPlace extends LocalizeMixin(LitElement) {
 
@@ -92,6 +95,9 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 		`;
 	}
 
+	static async getLocalizeResources(langs) {
+		return getLocalizeResources(langs, baseUrl);
+	}
 	constructor() {
 		super();
 		this.value = '';
@@ -121,8 +127,8 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 						@keydown="${this._saveValueChange_Keydown}"
 						@change="${this._updateInputTextValue}">
 					</d2l-input-text>
-					<d2l-button class="Input-Button" primary @click="${this._saveValueChange}">Save</d2l-button>
-					<d2l-button class="Input-Button" @click="${this._cancelValueChange}">Cancel</d2l-button>
+					<d2l-button class="Input-Button" primary @click="${this._saveValueChange}">${this.localize('save')}</d2l-button>
+					<d2l-button class="Input-Button" @click="${this._cancelValueChange}">${this.localize('cancel')}</d2l-button>
 				</div>
 			</div>
 		`;
