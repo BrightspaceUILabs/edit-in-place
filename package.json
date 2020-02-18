@@ -10,7 +10,10 @@
     "access": "public"
   },
   "files": [
-    "d2l-labs-edit-in-place.js"
+    "d2l-labs-edit-in-place.js",
+	"lang/.*",
+	"localization.js",
+	".gitignore"
   ],
   "scripts": {
     "lint": "eslint . --ext .js,.html",
