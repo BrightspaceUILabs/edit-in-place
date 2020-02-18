@@ -10,7 +10,7 @@
     "access": "public"
   },
   "files": [
-    "d2l-labs-edit-in-place.js",
+	"d2l-labs-edit-in-place.js",
 	"lang/.*",
 	"localization.js",
 	".gitignore"
