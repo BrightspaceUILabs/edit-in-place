@@ -9,12 +9,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "d2l-labs-edit-in-place.js",
-    "lang/.*",
-    "localization.js",
-    ".gitignore"
-  ],
   "scripts": {
     "lint": "eslint . --ext .js,.html",
     "test": "npm run lint && npm run test:local",
