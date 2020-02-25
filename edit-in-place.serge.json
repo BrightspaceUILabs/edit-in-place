@@ -21,6 +21,11 @@
       "tr-tr tr",
       "zh-cn zh",
       "zh-tw zh-tw"
+    ],
+    "pr_reviewers": [
+      "m6jones",
+      "iFun",
+      "BhamelinD2L"
     ]
   }
 ]
