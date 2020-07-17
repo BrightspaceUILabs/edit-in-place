@@ -1,26 +1,61 @@
-import { resolveUrl } from '@polymer/polymer/lib/utils/resolve-url.js';
+export async function getLocalizeResources(langs) {
 
-export async function getLocalizeResources(langs, importMetaUrl) {
-	const imports = [];
-	let supportedLanguage;
-	for (const language of langs.reverse()) {
-		if (['en', 'ar', 'de', 'es', 'fr', 'ja', 'ko', 'nl', 'pt', 'sv', 'tr', 'zh', 'zh-tw'].includes(language)) {
-			supportedLanguage = language;
-			const filePath = `./lang/${language}.js`;
-			imports.push(import(resolveUrl(filePath, importMetaUrl)));
+	let translations;
+	for await (const lang of langs) {
+		switch (lang) {
+			case 'ar':
+				translations = await import('./lang/ar.js');
+				break;
+			case 'da':
+				translations = await import('./lang/da-dk.js');
+				break;
+			case 'de':
+				translations = await import('./lang/de.js');
+				break;
+			case 'en':
+				translations = await import('./lang/en.js');
+				break;
+			case 'es':
+				translations = await import('./lang/es.js');
+				break;
+			case 'fr':
+				translations = await import('./lang/fr.js');
+				break;
+			case 'ja':
+				translations = await import('./lang/ja.js');
+				break;
+			case 'ko':
+				translations = await import('./lang/ko.js');
+				break;
+			case 'nl':
+				translations = await import('./lang/nl.js');
+				break;
+			case 'pt':
+				translations = await import('./lang/pt.js');
+				break;
+			case 'sv':
+				translations = await import('./lang/sv.js');
+				break;
+			case 'tr':
+				translations = await import('./lang/tr.js');
+				break;
+			case 'zh-tw':
+				translations = await import('./lang/zh-tw.js');
+				break;
+			case 'zh':
+				translations = await import('./lang/zh.js');
+				break;
+		}
+		if (translations && translations.default) {
+			return {
+				language: lang,
+				resources: translations.default
+			};
 		}
 	}
-
-	const translationFiles = await Promise.all(imports);
-	const langterms = {};
-	for (const translationFile of translationFiles) {
-		for (const langterm in translationFile.default) {
-			langterms[langterm] = translationFile.default[langterm];
-		}
-	}
-
+	translations = await import('./en.js');
 	return {
-		language: supportedLanguage,
-		resources: langterms
+		language: 'en',
+		resources: translations.default
 	};
 }
