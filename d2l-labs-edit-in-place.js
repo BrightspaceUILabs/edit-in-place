@@ -11,8 +11,6 @@ import { getLocalizeResources } from './localization.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { LocalizeMixin } from '@brightspace-ui/core/mixins/localize-mixin.js';
 
-const baseUrl = import.meta.url;
-
 class EditInPlace extends LocalizeMixin(LitElement) {
 
 	static get properties() {
@@ -96,7 +94,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 	}
 
 	static async getLocalizeResources(langs) {
-		return getLocalizeResources(langs, baseUrl);
+		return getLocalizeResources(langs);
 	}
 	constructor() {
 		super();
