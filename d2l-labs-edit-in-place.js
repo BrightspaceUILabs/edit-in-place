@@ -121,6 +121,7 @@ class EditInPlace extends LocalizeMixin(LitElement) {
 						class="Input-Box"
 						size="${ifDefined(this.size)}"
 						maxlength="${ifDefined(this.maxlength)}"
+						novalidate
 						placeholder="${this.placeholder}"
 						@keydown="${this._saveValueChange_Keydown}"
 						@change="${this._updateInputTextValue}">
