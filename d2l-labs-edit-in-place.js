@@ -4,8 +4,8 @@
  *
  * @demo demo/d2l-labs-edit-in-place.html
  */
-import 'd2l-inputs/d2l-input-text';
 import '@brightspace-ui/core/components/button/button.js';
+import '@brightspace-ui/core/components/inputs/input-text.js';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
 import { getLocalizeResources } from './localization.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
