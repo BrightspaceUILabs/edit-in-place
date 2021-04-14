@@ -1,6 +1,6 @@
 {
   "name": "@brightspace-ui-labs/edit-in-place",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Lit-based web component for displaying text and editing it directly.",
   "repository": {
     "type": "git",
