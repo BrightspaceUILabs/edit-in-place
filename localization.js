@@ -28,7 +28,7 @@ export async function getLocalizeResources(langs) {
 				translations = await import('./lang/fr.js');
 				break;
 			case 'fr-fr':
-				translations = await import('./lang/fr-r.js');
+				translations = await import('./lang/fr-fr.js');
 				break;
 			case 'fr-on':
 				translations = await import('./lang/fr-on.js');
