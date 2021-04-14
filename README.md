@@ -18,6 +18,8 @@
 
 A [LitElement](https://lit-element.polymer-project.org/) web component for displaying text and editing it in-place.
 
+![animated screenshot of edit in place component](./screenshot.gif)
+
 ## Installation
 
 To install from NPM:
