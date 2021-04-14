@@ -6,8 +6,11 @@ export async function getLocalizeResources(langs) {
 			case 'ar':
 				translations = await import('./lang/ar.js');
 				break;
+			case 'cy':
+				translations = await import('./lang/cy.js');
+				break;
 			case 'da':
-				translations = await import('./lang/da-dk.js');
+				translations = await import('./lang/da.js');
 				break;
 			case 'de':
 				translations = await import('./lang/de.js');
@@ -18,8 +21,17 @@ export async function getLocalizeResources(langs) {
 			case 'es':
 				translations = await import('./lang/es.js');
 				break;
+			case 'es-es':
+				translations = await import('./lang/es-es.js');
+				break;
 			case 'fr':
 				translations = await import('./lang/fr.js');
+				break;
+			case 'fr-fr':
+				translations = await import('./lang/fr-r.js');
+				break;
+			case 'fr-on':
+				translations = await import('./lang/fr-on.js');
 				break;
 			case 'ja':
 				translations = await import('./lang/ja.js');
@@ -42,8 +54,8 @@ export async function getLocalizeResources(langs) {
 			case 'zh-tw':
 				translations = await import('./lang/zh-tw.js');
 				break;
-			case 'zh':
-				translations = await import('./lang/zh.js');
+			case 'zh-cn':
+				translations = await import('./lang/zh-cn.js');
 				break;
 		}
 		if (translations && translations.default) {
